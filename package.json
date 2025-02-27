@@ -1,0 +1,23 @@
+{
+  "name": "creacosm-backend",
+  "version": "1.0.0",
+  "description": "Backend d'un module pour application Web, dans le cadre du projet de Systèmes d'Information, en Licence 3 MIAGE à l'Université d'Orléans.",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon"
+  },
+  "contributors": [
+    "Vincent Gonnet",
+    "Esteban Draily",
+    "Koffi-Hild Gomado",
+    "Arthur Goudal"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "sequelize": "^6.37.5",
+    "sequelize-fixtures": "^1.2.0",
+    "sqlite3": "^5.1.7"
+  }
+}
