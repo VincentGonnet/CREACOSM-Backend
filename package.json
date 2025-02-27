@@ -2,7 +2,7 @@
   "name": "creacosm-backend",
   "version": "1.0.0",
   "description": "Backend d'un module pour application Web, dans le cadre du projet de Systèmes d'Information, en Licence 3 MIAGE à l'Université d'Orléans.",
-  "main": "src/app.js",
+  "main": "src/app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon"
@@ -19,5 +19,12 @@
     "sequelize": "^6.37.5",
     "sequelize-fixtures": "^1.2.0",
     "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/sequelize": "^4.28.20",
+    "@types/sequelize-fixtures": "^0.6.6",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2"
   }
 }

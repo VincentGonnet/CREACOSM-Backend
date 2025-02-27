@@ -1,5 +1,5 @@
-const express = require("express");
-const app = express();
+import express, { Application } from "express";
+const app: Application = express();
 
 app.get("/", (req, res) => {
     console.log("Responding to root route")
