@@ -5,7 +5,9 @@
   "main": "src/app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "build": "tsc",
+    "start": "node dist/app.js"
   },
   "contributors": [
     "Vincent Gonnet",

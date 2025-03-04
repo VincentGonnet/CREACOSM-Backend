@@ -1,12 +1,18 @@
 {
 	"compilerOptions": {
-		"outDir": "./built",
-		"allowJs": true,
-		"target": "ES6",
+		"module": "commonjs",
+		"target": "es6",
+		"moduleResolution": "node",
+		"baseUrl": "./",
+		"paths": {
+		"*": ["node_modules/*", "src/types/*"]
+		},
+		"outDir": "./dist",
+		"rootDir": "./src",
 		"esModuleInterop": true,
-		"noImplicitAny": true,
-		"moduleResolution": "node"
-	},
+		"resolveJsonModule": true,
+		"skipLibCheck": true
+  	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules"]
 }
