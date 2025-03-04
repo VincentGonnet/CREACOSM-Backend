@@ -10,7 +10,7 @@ app.use("/", gameRouter);
 async function authenticateDatabase(retries = 5, delay = 3000) {
     while (retries > 0) {
         try {
-            // await db.sequelize.authenticate();
+            await db.sequelize.authenticate();
             console.log('Connection has been established successfully.');
             break;
         } catch (error) {
