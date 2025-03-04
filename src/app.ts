@@ -1,4 +1,6 @@
 import express, { Application } from "express";
+import db from "./models"; // Ensure this path is correct or the module exists
+
 const app: Application = express();
 
 app.get("/", (req, res) => {
@@ -6,7 +8,11 @@ app.get("/", (req, res) => {
     res.send("Hello World ! Here is your Express.js backend")
 });
 
-// http://localhost:3000/
-app.listen(3000, () => {
-    console.log("Server is up and listening on port 3000")
+// Synchronize models with database
+db.sequelize.sync().then(() => {
+    console.log('Database synchronized');
+    // http://localhost:3000/
+    app.listen(3000, () => {
+        console.log('Server is up and listening on port 3000');
+    });
 });
