@@ -1,17 +1,16 @@
 import express, { Application } from "express";
-import db from "./models"; // Ensure this path is correct or the module exists
+import db from "./models"; 
+import gameRouter from "./routes/game.route";
 
 const app: Application = express();
 
-app.get("/", (req, res) => {
-    console.log("Responding to root route")
-    res.send("Hello World ! Here is your Express.js backend")
-});
+app.use(express.json());
+app.use("/", gameRouter);
 
 async function authenticateDatabase(retries = 5, delay = 3000) {
     while (retries > 0) {
         try {
-            await db.sequelize.authenticate();
+            // await db.sequelize.authenticate();
             console.log('Connection has been established successfully.');
             break;
         } catch (error) {
