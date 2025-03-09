@@ -32,4 +32,22 @@ const db: DbInterface = {
   GameIngredient,
 };
 
+Ingredient.hasMany(Text, { foreignKey: "idIngredient" });
+Text.belongsTo(Ingredient, { foreignKey: "idIngredient" });
+
+Ingredient.hasMany(IngredientStorage, { foreignKey: "idIngredient" });
+IngredientStorage.belongsTo(Ingredient, { foreignKey: "idIngredient" });
+
+Game.belongsToMany(Ingredient, {
+  through: GameIngredient,
+  foreignKey: "groupId",
+});
+Ingredient.belongsToMany(Game, {
+  through: GameIngredient,
+  foreignKey: "ingredientId",
+});
+
+Discovered.belongsTo(Text, { foreignKey: "textId" });
+Text.hasMany(Discovered, { foreignKey: "textId" });
+
 export default db;

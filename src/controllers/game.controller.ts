@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
+import db from "../models";
 
-function startGame(req: Request, res: Response, next) {
+async function startGame(req: Request, res: Response, next) {
   // TODO: modify the function to send a POST request to the game service to start the game, instead of replicating the logic here
 
   // Check if the request body is in JSON format
@@ -16,11 +17,12 @@ function startGame(req: Request, res: Response, next) {
     return;
   }
 
-  // log the game code to the console
-  console.log(req.body.code);
+  const gameCode = req.body.code;
+
+  console.log("Game start request with game code :", gameCode);
 
   // Respond with the appropriate status code based on the game code
-  switch (req.body.code) {
+  switch (gameCode) {
     case "1":
       res.status(200).send("Game started");
       break;
@@ -34,6 +36,26 @@ function startGame(req: Request, res: Response, next) {
       res.status(400).send("Bad Request");
       break;
   }
+
+  // Create a new game in the database
+  db.Game.findOrCreate({
+    where: {
+      groupId: gameCode,
+    },
+    defaults: {
+      groupId: gameCode,
+    },
+  })
+    .then(([game, created]) => {
+      if (created) {
+        console.log("Game created with game code :", game.groupId);
+      } else {
+        console.log("Game already exists with game code :", game.groupId);
+      }
+    })
+    .catch((error) => {
+      console.error("Error occurred while creating the game :", error);
+    });
 }
 
 function endGame(completed: boolean) {

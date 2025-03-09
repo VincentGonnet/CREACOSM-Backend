@@ -10,12 +10,12 @@ class GameIngredient extends Model {
 
 GameIngredient.init(
   {
-    gameId: {
+    groupId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: Game,
-        key: "id",
+        key: "groupId",
       },
       primaryKey: true,
     },
