@@ -5,7 +5,7 @@ import Text from "./text"; // Import the Text model for association
 class Discovered extends Model {
   public id!: number;
   public groupId!: number;
-  public idText!: number[];
+  public textId!: number[];
 }
 
 Discovered.init(
