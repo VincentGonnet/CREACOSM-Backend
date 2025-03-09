@@ -17,8 +17,7 @@ async function getDiscoveredTable(req: Request, res: Response) {
     return;
   }
 
-  // parse the request body (json) that should contain { "group": "number", "ingredientId": "number" }
-  // if the code is not present, return 400 Bad Request
+  // check that the request body contains { "group": "number", "ingredientId": "number" }
   if (!req.body.group || !req.body.ingredientId) {
     res
       .status(400)
@@ -72,7 +71,6 @@ async function getDiscoveredTable(req: Request, res: Response) {
             upperBound: text.upperBound,
             message: text.message,
           });
-          console.log("Added text to discovered table :", text.message);
         }
       }
 

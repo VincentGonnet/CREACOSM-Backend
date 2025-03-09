@@ -10,8 +10,7 @@ async function startGame(req: Request, res: Response, next) {
     return;
   }
 
-  // parse the request body (json) that should contain { "code": "some-code" }
-  // if the code is not present, return 400 Bad Request
+  // check that the request body contains { "code": "some-code" }
   if (!req.body.code) {
     res.status(400).send("Bad Request");
     return;

@@ -35,6 +35,26 @@ Backend d'un module pour application Web, dans le cadre du projet de Systèmes d
       }
     ]
     ```
+- POST : `/get-ingredients`
+  - Le header doit contenir :
+    - `'Content-Type': 'application/json'`
+  - Le body doit contenir :
+    - `'group': '(numGroupe)'` avec (numGroupe) le numéro de partie rentré par les joueurs
+  - Retourne une string JSON, contenant une liste d'ingredients
+    ```json
+    [
+      {
+        "id": 8,
+        "label": "parfum",
+        "image": "image-url"
+      },
+      {
+        "id": 1,
+        "label": "beurre de karité",
+        "image": "image-url"
+      }
+    ]
+    ```
 
 ## Crédits
 

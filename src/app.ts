@@ -1,12 +1,17 @@
 import express, { Application } from "express";
 import db from "./models";
-import gameRouter from "./routes/game.route";
 import sequelizeFixtures from "sequelize-fixtures";
+
+import gameRouter from "./routes/game.route";
+import discoveriesRouter from "./routes/discoveries.route";
+import ingredientsRouter from "./routes/ingredients.route";
 
 const app: Application = express();
 
 app.use(express.json());
 app.use("/", gameRouter);
+app.use("/", discoveriesRouter);
+app.use("/", ingredientsRouter);
 
 async function authenticateDatabase(retries = 5, delay = 3000) {
   while (retries > 0) {
