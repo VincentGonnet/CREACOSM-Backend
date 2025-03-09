@@ -19,26 +19,6 @@ function startGame(req: Request, res: Response, next) {
   // log the game code to the console
   console.log(req.body.code);
 
-  // // Check if the Authorization header is present
-  // // If not, return 401 Unauthorized
-  // const authHeader = req.headers.authorization;
-  // if (!authHeader) {
-  //     res.status(401).send('Authorization header is missing');
-  //     return;
-  // }
-
-  // // Split the Authorization header value by space
-  // // If the length is not 3 or the first part is not 'Bearer', return 401 Unauthorized
-  // const authParts = authHeader.split(' ');
-  // if (authParts.length !== 3 || authParts[0] !== 'Bearer') {
-  //     res.status(401).send('Invalid Authorization header format');
-  //     return;
-  // }
-
-  // // Log the group code and word to the console
-  // const [bearer, groupCode, word] = authParts;
-  // console.log(`Number: ${groupCode}, Word: ${word}`);
-
   // Respond with the appropriate status code based on the game code
   switch (req.body.code) {
     case "1":

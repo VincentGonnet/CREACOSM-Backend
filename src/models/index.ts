@@ -5,16 +5,31 @@ import Storage from "./storage";
 import Text from "./text";
 import IngredientStorage from "./ingredient-storage";
 import Discovered from "./discovered";
+import Game from "./game";
+import GameIngredient from "./game-ingredient";
 
-const db: { [key: string]: any } = {};
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
+interface DbInterface {
+  Sequelize: typeof Sequelize;
+  sequelize: Sequelize;
+  Ingredient: typeof Ingredient;
+  Storage: typeof Storage;
+  Text: typeof Text;
+  IngredientStorage: typeof IngredientStorage;
+  Discovered: typeof Discovered;
+  Game: typeof Game;
+  GameIngredient: typeof GameIngredient;
+}
 
-// Models
-db.Ingredient = Ingredient;
-db.Storage = Storage;
-db.Text = Text;
-db.IngredientStorage = IngredientStorage;
-db.Discovered = Discovered;
+const db: DbInterface = {
+  Sequelize,
+  sequelize,
+  Ingredient,
+  Storage,
+  Text,
+  IngredientStorage,
+  Discovered,
+  Game,
+  GameIngredient,
+};
 
 export default db;
