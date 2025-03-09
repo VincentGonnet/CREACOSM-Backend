@@ -6,13 +6,42 @@ Backend d'un module pour application Web, dans le cadre du projet de Systèmes d
 
 ### Commencer la partie
 
-- POST : `/start-game`
+- POST : `/start-game` - démarre la partie et vérifie le code du groupe
   - Le header doit contenir :
     - `'Content-Type': 'application/json'`
   - Le body doit contenir :
     - `'code': '(code)'` avec (code) le numéro de partie rentré par les joueurs
   - Retourne le code 200 si tout va bien
-- POST : `/get-discovered-table`
+- POST : `/get-ingredients` - récupère les ingrédients utilisés pour cette partie
+  - Le header doit contenir :
+    - `'Content-Type': 'application/json'`
+  - Le body doit contenir :
+    - `'group': '(numGroupe)'` avec (numGroupe) le numéro de partie rentré par les joueurs
+  - Retourne une string JSON, contenant une liste d'ingredients
+    ```json
+    [
+      {
+        "id": 8,
+        "label": "parfum",
+        "image": "image-url"
+      },
+      {
+        "id": 1,
+        "label": "beurre de karité",
+        "image": "image-url"
+      }
+    ]
+    ```
+- POST : `/analyze-ingredient` - analyse un ingrédient et renvoie l'état après le test
+  - Le header doit contenir :
+    - `'Content-Type': 'application/json'`
+  - Le body doit contenir :
+    - `'group': '(numGroupe)'` avec (numGroupe) le numéro de partie rentré par les joueurs
+    - `'ingredientId': '(id)'` avec (id) l'id de l'ingrédient à analyser
+    - `'condition': '(condition)'` avec (condition) soit "temperature", soit "humidite", soit "luminosite"
+    - `'value': '(value)'` avec (value) la valeur à tester
+  - Retourne un texte avec l'état de l'ingrédient après le test. Le résultat de l'analyse sera sauvegardé dans le tableau des découvertes.
+- POST : `/get-discovered-table` - récupère la table des découvertes pour un ingrédient donné
   - Le header doit contenir :
     - `'Content-Type': 'application/json'`
   - Le body doit contenir :
@@ -32,26 +61,6 @@ Backend d'un module pour application Web, dans le cadre du projet de Systèmes d
         "lowerBound": -500,
         "upperBound": 0,
         "message": "l'acide hyaluronique est gelé"
-      }
-    ]
-    ```
-- POST : `/get-ingredients`
-  - Le header doit contenir :
-    - `'Content-Type': 'application/json'`
-  - Le body doit contenir :
-    - `'group': '(numGroupe)'` avec (numGroupe) le numéro de partie rentré par les joueurs
-  - Retourne une string JSON, contenant une liste d'ingredients
-    ```json
-    [
-      {
-        "id": 8,
-        "label": "parfum",
-        "image": "image-url"
-      },
-      {
-        "id": 1,
-        "label": "beurre de karité",
-        "image": "image-url"
       }
     ]
     ```
