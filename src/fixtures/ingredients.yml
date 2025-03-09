@@ -1,0 +1,45 @@
+fixtures:
+  - model: Ingredient
+    data:
+      label: beurre de karité
+      image: beurre_de_karite.jpg
+  - model: Ingredient
+    data:
+      label: huile végétale de prune
+      image: huile_vegetale_de_prune.jpg
+  - model: Ingredient
+    data:
+      label: conservateur caprylyl glycol
+      image: conservateur_caprylyl_glycol.jpg
+  - model: Ingredient
+    data:
+      label: acide citrique
+      image: acide_citrique.jpg
+  - model: Ingredient
+    data:
+      label: glycérine
+      image: glycerine.jpg
+  - model: Ingredient
+    data:
+      label: gélifiant synthétique
+      image: gelifiant_synthetique.jpg
+  - model: Ingredient
+    data:
+      label: lécithine
+      image: lecithine.jpg
+  - model: Ingredient
+    data:
+      label: parfum
+      image: parfum.jpg
+  - model: Ingredient
+    data:
+      label: eau florale de rose
+      image: eau_florale_de_rose.jpg
+  - model: Ingredient
+    data:
+      label: acide hyaluronique
+      image: acide_hyaluronique.jpg
+  - model: Ingredient
+    data:
+      label: extrait de rhododendron
+      image: extrait_de_rhododendron.jpg
