@@ -52,12 +52,14 @@ Backend d'un module pour application Web, dans le cadre du projet de Systèmes d
     [
       {
         "condition": "température",
+        "unit": "°C",
         "lowerBound": 0,
         "upperBound": 50,
         "message": "l'acide hyaluronique est stable"
       },
       {
         "condition": "température",
+        "unit": "°C",
         "lowerBound": -500,
         "upperBound": 0,
         "message": "l'acide hyaluronique est gelé"
