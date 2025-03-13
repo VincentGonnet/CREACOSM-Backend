@@ -7,6 +7,7 @@ import IngredientStorage from "./ingredient-storage";
 import Discovered from "./discovered";
 import Game from "./game";
 import GameIngredient from "./game-ingredient";
+import Condition from "./condition";
 
 interface DbInterface {
   Sequelize: typeof Sequelize;
@@ -18,6 +19,7 @@ interface DbInterface {
   Discovered: typeof Discovered;
   Game: typeof Game;
   GameIngredient: typeof GameIngredient;
+  Condition: typeof Condition;
 }
 
 const db: DbInterface = {
@@ -30,6 +32,7 @@ const db: DbInterface = {
   Discovered,
   Game,
   GameIngredient,
+  Condition,
 };
 
 Ingredient.hasMany(Text, { foreignKey: "idIngredient" });
@@ -37,6 +40,9 @@ Text.belongsTo(Ingredient, { foreignKey: "idIngredient" });
 
 Ingredient.hasMany(IngredientStorage, { foreignKey: "idIngredient" });
 IngredientStorage.belongsTo(Ingredient, { foreignKey: "idIngredient" });
+
+IngredientStorage.belongsTo(Condition, { foreignKey: "condition" });
+Condition.hasMany(IngredientStorage, { foreignKey: "condition" });
 
 Game.belongsToMany(Ingredient, {
   through: GameIngredient,

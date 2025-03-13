@@ -4,6 +4,7 @@ import { Op } from "sequelize";
 
 interface DiscoveredTableRow {
   condition: string;
+  unit: string;
   lowerBound: number;
   upperBound: number;
   message: string;
@@ -65,8 +66,21 @@ async function getDiscoveredTable(req: Request, res: Response) {
         });
 
         if (text) {
+          const condition = await db.Condition.findOne({
+            where: {
+              label: text?.condition,
+            },
+          });
+
+          if (!condition) {
+            console.error("Condition not found for label :", text.condition);
+            res.status(500).send("Internal Server Error");
+            return;
+          }
+
           discoveredTable.push({
             condition: text.condition,
+            unit: condition.unit,
             lowerBound: text.lowerBound,
             upperBound: text.upperBound,
             message: text.message,

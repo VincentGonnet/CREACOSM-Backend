@@ -1,6 +1,7 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/database";
 import Ingredient from "./ingredient"; // Import the Ingredient model for association
+import Condition from "./condition";
 
 class IngredientStorage extends Model {
   public idIngredient!: number;
@@ -23,6 +24,10 @@ IngredientStorage.init(
     condition: {
       type: DataTypes.STRING,
       allowNull: false,
+      references: {
+        model: Condition,
+        key: "label",
+      },
       primaryKey: true,
     },
     lowerBound: {

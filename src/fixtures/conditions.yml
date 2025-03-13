@@ -1,0 +1,13 @@
+fixtures:
+  - model: Condition
+    data:
+      label: température
+      unit: °C
+  - model: Condition
+    data:
+      label: humidité
+      unit: "%"
+  - model: Condition
+    data:
+      label: luminosité
+      unit: lux

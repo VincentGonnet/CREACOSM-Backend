@@ -38,7 +38,7 @@ Backend d'un module pour application Web, dans le cadre du projet de Systèmes d
   - Le body doit contenir :
     - `'group': '(numGroupe)'` avec (numGroupe) le numéro de partie rentré par les joueurs
     - `'ingredientId': '(id)'` avec (id) l'id de l'ingrédient à analyser
-    - `'condition': '(condition)'` avec (condition) soit "temperature", soit "humidite", soit "luminosite"
+    - `'condition': '(condition)'` avec (condition) soit "température", soit "humidité", soit "luminosite"
     - `'value': '(value)'` avec (value) la valeur à tester
   - Retourne un texte avec l'état de l'ingrédient après le test. Le résultat de l'analyse sera sauvegardé dans le tableau des découvertes.
 - POST : `/get-discovered-table` - récupère la table des découvertes pour un ingrédient donné
@@ -51,13 +51,13 @@ Backend d'un module pour application Web, dans le cadre du projet de Systèmes d
     ```json
     [
       {
-        "condition": "temperature",
+        "condition": "température",
         "lowerBound": 0,
         "upperBound": 50,
         "message": "l'acide hyaluronique est stable"
       },
       {
-        "condition": "temperature",
+        "condition": "température",
         "lowerBound": -500,
         "upperBound": 0,
         "message": "l'acide hyaluronique est gelé"

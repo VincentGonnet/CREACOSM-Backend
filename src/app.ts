@@ -48,6 +48,7 @@ async function startServer() {
       IngredientStorage: db.IngredientStorage,
       Discovered: db.Discovered,
       Game: db.Game,
+      Condition: db.Condition,
     };
 
     await sequelizeFixtures.loadFile("src/fixtures/*.yml", models);

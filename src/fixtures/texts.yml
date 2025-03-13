@@ -2,77 +2,77 @@ fixtures:
   - model: Text
     data:
       idIngredient: 1
-      condition: temperature
+      condition: température
       lowerBound: 20
       upperBound: 1000
       message: le beurre de karité a fondu
   - model: Text
     data:
       idIngredient: 2
-      condition: temperature
+      condition: température
       lowerBound: 10
       upperBound: 200
       message: l'huile végétale de prune est stable
   - model: Text
     data:
       idIngredient: 3
-      condition: temperature
+      condition: température
       lowerBound: 0
       upperBound: 50
       message: le conservateur caprylyl glycol est efficace
   - model: Text
     data:
       idIngredient: 4
-      condition: temperature
+      condition: température
       lowerBound: 0
       upperBound: 100
       message: l'acide citrique est stable
   - model: Text
     data:
       idIngredient: 5
-      condition: temperature
+      condition: température
       lowerBound: 0
       upperBound: 50
       message: la glycérine est stable
   - model: Text
     data:
       idIngredient: 6
-      condition: temperature
+      condition: température
       lowerBound: 0
       upperBound: 100
       message: le gélifiant synthétique est stable
   - model: Text
     data:
       idIngredient: 7
-      condition: temperature
+      condition: température
       lowerBound: 0
       upperBound: 50
       message: la lécithine est stable
   - model: Text
     data:
       idIngredient: 8
-      condition: temperature
+      condition: température
       lowerBound: 0
       upperBound: 100
       message: le parfum est stable
   - model: Text
     data:
       idIngredient: 9
-      condition: temperature
+      condition: température
       lowerBound: 0
       upperBound: 50
       message: l'eau florale de rose est stable
   - model: Text
     data:
       idIngredient: 10
-      condition: temperature
+      condition: température
       lowerBound: 0
       upperBound: 50
       message: l'acide hyaluronique est stable
   - model: Text
     data:
       idIngredient: 11
-      condition: temperature
+      condition: température
       lowerBound: 0
       upperBound: 50
       message: l'extrait de rhododendron est stable
