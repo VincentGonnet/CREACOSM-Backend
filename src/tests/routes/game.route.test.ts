@@ -1,6 +1,6 @@
 import request from "supertest";
 import express from "express";
-import gameRouter from "./game.route";
+import gameRouter from "../../routes/game.route";
 
 const app = express();
 app.use(express.json());

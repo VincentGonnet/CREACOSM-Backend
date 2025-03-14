@@ -6,4 +6,5 @@ module.exports = {
         '^.+\\.tsx?$': 'ts-jest',
     },
     testMatch: ['**/?(*.)+(spec|test).ts?(x)'],
+    setupFilesAfterEnv: ["<rootDir>/src/tests/jest.setup.ts"],
 };

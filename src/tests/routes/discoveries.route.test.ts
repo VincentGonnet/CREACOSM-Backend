@@ -1,6 +1,6 @@
 import request from "supertest";
 import express from "express";
-import router from "./discoveries.route";
+import router from "../../routes/discoveries.route";
 
 const app = express();
 app.use(express.json());

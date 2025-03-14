@@ -66,6 +66,20 @@ Backend d'un module pour application Web, dans le cadre du projet de Systèmes d
       }
     ]
     ```
+- POST : `/get-storages` - récupère les options de stockage
+  - Retourne une string JSON, contenant une liste d'objets avec id et libellé
+    ```json
+    [
+      {
+        "id": 1,
+        "label": "Frigo"
+      },
+      {
+        "id": 2,
+        "id": "Étagère"
+      }
+    ]
+    ```
 
 ## Crédits
 

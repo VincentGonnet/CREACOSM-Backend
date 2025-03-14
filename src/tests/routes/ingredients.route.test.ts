@@ -1,6 +1,6 @@
 import request from "supertest";
 import express from "express";
-import ingredientsRouter from "./ingredients.route";
+import ingredientsRouter from "../../routes/ingredients.route";
 
 const app = express();
 app.use(express.json());
