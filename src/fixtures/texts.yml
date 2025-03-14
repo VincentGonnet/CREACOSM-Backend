@@ -3,76 +3,384 @@ fixtures:
     data:
       idIngredient: 1
       condition: température
-      lowerBound: 20
+      lowerBound: 15.0
+      upperBound: 25.0
+      message: La température est idéale pour le beurre de karité.
+  - model: Text
+    data:
+      idIngredient: 1
+      condition: température
+      lowerBound: -1000
+      upperBound: 15.0
+      message: La température est trop basse pour le beurre de karité. Risque de durcissement excessif.
+  - model: Text
+    data:
+      idIngredient: 1
+      condition: température
+      lowerBound: 25.0
       upperBound: 1000
-      message: le beurre de karité a fondu
+      message: La température est trop élevée pour le beurre de karité. Risque de fonte et d'altération.
+  - model: Text
+    data:
+      idIngredient: 1
+      condition: luminosité
+      lowerBound: 0.0
+      upperBound: 100.0
+      message: La luminosité est adaptée au beurre de karité.
+  - model: Text
+    data:
+      idIngredient: 1
+      condition: luminosité
+      lowerBound: -1000
+      upperBound: 0.0
+      message: L'obscurité totale est idéale pour le beurre de karité.
+  - model: Text
+    data:
+      idIngredient: 1
+      condition: luminosité
+      lowerBound: 100.0
+      upperBound: 1000
+      message: La luminosité est trop forte pour le beurre de karité. Risque d'oxydation.
+  - model: Text
+    data:
+      idIngredient: 1
+      condition: humidité
+      lowerBound: 0.0
+      upperBound: 55.0
+      message: L'humidité est adéquate pour le beurre de karité.
+  - model: Text
+    data:
+      idIngredient: 1
+      condition: humidité
+      lowerBound: 55.0
+      upperBound: 1000
+      message: L'humidité est trop élevée pour le beurre de karité. Risque de moisissure.
   - model: Text
     data:
       idIngredient: 2
       condition: température
-      lowerBound: 10
-      upperBound: 200
-      message: l'huile végétale de prune est stable
+      lowerBound: 10.0
+      upperBound: 20.0
+      message: La température est adaptée pour l'huile de prune.
+  - model: Text
+    data:
+      idIngredient: 2
+      condition: température
+      lowerBound: -1000
+      upperBound: 10.0
+      message: La température est trop basse pour l'huile de prune. Risque d'épaississement.
+  - model: Text
+    data:
+      idIngredient: 2
+      condition: température
+      lowerBound: 20.0
+      upperBound: 1000
+      message: La température est trop élevée pour l'huile de prune. Risque d'altération.
+  - model: Text
+    data:
+      idIngredient: 2
+      condition: luminosité
+      lowerBound: 0.0
+      upperBound: 200.0
+      message: La luminosité est bien adaptée pour l'huile de prune.
+  - model: Text
+    data:
+      idIngredient: 2
+      condition: luminosité
+      lowerBound: -1000
+      upperBound: 0.0
+      message: L'absence totale de lumière protège bien l'huile de prune.
+  - model: Text
+    data:
+      idIngredient: 2
+      condition: luminosité
+      lowerBound: 200.0
+      upperBound: 1000
+      message: Trop de lumière peut altérer l'huile de prune. Stockage inadéquat.
+  - model: Text
+    data:
+      idIngredient: 2
+      condition: humidité
+      lowerBound: -1000
+      upperBound: 0.0
+      message: L'humidité est trop basse pour l'huile de prune. Risque de dessèchement.
+  - model: Text
+    data:
+      idIngredient: 2
+      condition: humidité
+      lowerBound: 0.0
+      upperBound: 55.0
+      message: L'humidité est adéquate pour l'huile de prune.
+  - model: Text
+    data:
+      idIngredient: 2
+      condition: humidité
+      lowerBound: 55.0
+      upperBound: 1000
+      message: L'humidité est trop élevée pour l'huile de prune. Risque de moisissure.
   - model: Text
     data:
       idIngredient: 3
       condition: température
-      lowerBound: 0
-      upperBound: 50
-      message: le conservateur caprylyl glycol est efficace
+      lowerBound: 10.0
+      upperBound: 30.0
+      message: La température est dans la plage idéale pour ce conservateur.
+  - model: Text
+    data:
+      idIngredient: 3
+      condition: température
+      lowerBound: -1000
+      upperBound: 10.0
+      message: Température trop basse. Risque de cristallisation du conservateur.
+  - model: Text
+    data:
+      idIngredient: 3
+      condition: température
+      lowerBound: 30.0
+      upperBound: 1000
+      message: Température trop élevée. Risque de dégradation du conservateur.
+  - model: Text
+    data:
+      idIngredient: 3
+      condition: humidité
+      lowerBound: 30.0
+      upperBound: 60.0
+      message: L'humidité est dans la plage recommandée pour ce conservateur.
+  - model: Text
+    data:
+      idIngredient: 3
+      condition: humidité
+      lowerBound: -1000
+      upperBound: 30.0
+      message: Humidité trop basse. Risque de dessèchement du conservateur.
+  - model: Text
+    data:
+      idIngredient: 3
+      condition: humidité
+      lowerBound: 60.0
+      upperBound: 1000
+      message: Humidité trop élevée. Risque de contamination du conservateur.
   - model: Text
     data:
       idIngredient: 4
       condition: température
-      lowerBound: 0
-      upperBound: 100
-      message: l'acide citrique est stable
+      lowerBound: 15.0
+      upperBound: 25.0
+      message: La température est idéale pour l'acide citrique.
+  - model: Text
+    data:
+      idIngredient: 4
+      condition: température
+      lowerBound: -1000
+      upperBound: 15.0
+      message: Température trop basse. Risque de cristallisation de l'acide citrique.
+  - model: Text
+    data:
+      idIngredient: 4
+      condition: température
+      lowerBound: 25.0
+      upperBound: 1000
+      message: Température trop élevée. Risque d'agglomération et d'irritation accrue.
+  - model: Text
+    data:
+      idIngredient: 4
+      condition: humidité
+      lowerBound: 0.0
+      upperBound: 50.0
+      message: L'humidité est adéquate pour l'acide citrique.
+  - model: Text
+    data:
+      idIngredient: 4
+      condition: humidité
+      lowerBound: 50.0
+      upperBound: 1000
+      message: Humidité trop élevée. Risque d'absorption d'humidité et d'agglomération.
   - model: Text
     data:
       idIngredient: 5
       condition: température
-      lowerBound: 0
-      upperBound: 50
-      message: la glycérine est stable
+      lowerBound: 15.0
+      upperBound: 25.0
+      message: La température est idéale pour la glycérine.
+  - model: Text
+    data:
+      idIngredient: 5
+      condition: température
+      lowerBound: -1000
+      upperBound: 15.0
+      message: Température trop basse. Risque d'augmentation de la viscosité de la glycérine.
+  - model: Text
+    data:
+      idIngredient: 5
+      condition: température
+      lowerBound: 25.0
+      upperBound: 1000
+      message: Température trop élevée. Risque de dégradation de la glycérine.
+  - model: Text
+    data:
+      idIngredient: 5
+      condition: humidité
+      lowerBound: 0.0
+      upperBound: 30.0
+      message: La glycérine se porte bien, la ventilation est idéale.
+  - model: Text
+    data:
+      idIngredient: 5
+      condition: humidité
+      lowerBound: 50
+      upperBound: 1000
+      message: Humidité excessive. La glycérine en a souffert.
   - model: Text
     data:
       idIngredient: 6
       condition: température
-      lowerBound: 0
-      upperBound: 100
-      message: le gélifiant synthétique est stable
+      lowerBound: 15.0
+      upperBound: 35.0
+      message: La température est idéale pour le gélifiant synthétique.
+  - model: Text
+    data:
+      idIngredient: 6
+      condition: température
+      lowerBound: -1000
+      upperBound: 15.0
+      message: Température trop basse. Risque de durcissement du gélifiant.
+  - model: Text
+    data:
+      idIngredient: 6
+      condition: température
+      lowerBound: 35.0
+      upperBound: 1000
+      message: Température trop élevée. Risque de dégradation du gélifiant.
   - model: Text
     data:
       idIngredient: 7
-      condition: température
-      lowerBound: 0
-      upperBound: 50
-      message: la lécithine est stable
+      condition: luminosité
+      lowerBound: 0.0
+      upperBound: 100.0
+      message: Luminosité adaptée pour la lécithine.
+  - model: Text
+    data:
+      idIngredient: 7
+      condition: luminosité
+      lowerBound: -1000
+      upperBound: 5.0
+      message: Obscurité totale, conservation optimale.
+  - model: Text
+    data:
+      idIngredient: 7
+      condition: luminosité
+      lowerBound: 100.0
+      upperBound: 1000
+      message: Trop de lumière. Risque d'oxydation de la lécithine.
   - model: Text
     data:
       idIngredient: 8
       condition: température
-      lowerBound: 0
-      upperBound: 100
-      message: le parfum est stable
+      lowerBound: 15.0
+      upperBound: 25.0
+      message: La température est idéale pour le parfum.
+  - model: Text
+    data:
+      idIngredient: 8
+      condition: température
+      lowerBound: -1000
+      upperBound: 15.0
+      message: Température trop basse. Risque de précipitation des composants du parfum.
+  - model: Text
+    data:
+      idIngredient: 8
+      condition: température
+      lowerBound: 25.0
+      upperBound: 1000
+      message: Température trop élevée. Risque d'évaporation des composés volatils du parfum.
+  - model: Text
+    data:
+      idIngredient: 8
+      condition: luminosité
+      lowerBound: 0.0
+      upperBound: 100.0
+      message: Luminosité idéale pour le parfum.
+  - model: Text
+    data:
+      idIngredient: 8
+      condition: luminosité
+      lowerBound: 100.0
+      upperBound: 1000
+      message: Trop de lumière. Risque d'altération des notes olfactives du parfum.
   - model: Text
     data:
       idIngredient: 9
       condition: température
-      lowerBound: 0
-      upperBound: 50
-      message: l'eau florale de rose est stable
+      lowerBound: 4.0
+      upperBound: 6.0
+      message: Température parfaite pour l'eau florale de rose.
+  - model: Text
+    data:
+      idIngredient: 9
+      condition: température
+      lowerBound: -1000
+      upperBound: 4.0
+      message: Température trop basse. Risque de congélation et d'altération des propriétés.
+  - model: Text
+    data:
+      idIngredient: 9
+      condition: température
+      lowerBound: 6.0
+      upperBound: 1000
+      message: Température trop élevée. Risque de fermentation et de dégradation.
   - model: Text
     data:
       idIngredient: 10
       condition: température
-      lowerBound: 0
-      upperBound: 50
-      message: l'acide hyaluronique est stable
+      lowerBound: 15.0
+      upperBound: 25.0
+      message: La température est idéale pour l'acide hyaluronique.
+  - model: Text
+    data:
+      idIngredient: 10
+      condition: température
+      lowerBound: -1000
+      upperBound: 15.0
+      message: Température trop basse. Risque de précipitation de l'acide hyaluronique.
+  - model: Text
+    data:
+      idIngredient: 10
+      condition: température
+      lowerBound: 25.0
+      upperBound: 1000
+      message: Température trop élevée. Risque de dégradation de l'acide hyaluronique.
+  - model: Text
+    data:
+      idIngredient: 10
+      condition: luminosité
+      lowerBound: 0.0
+      upperBound: 100.0
+      message: Luminosité adéquate pour l'acide hyaluronique.
+  - model: Text
+    data:
+      idIngredient: 10
+      condition: luminosité
+      lowerBound: 100.0
+      upperBound: 1000
+      message: Trop de lumière. Risque de dégradation de l'acide hyaluronique.
   - model: Text
     data:
       idIngredient: 11
       condition: température
-      lowerBound: 0
-      upperBound: 50
-      message: l'extrait de rhododendron est stable
+      lowerBound: 4.0
+      upperBound: 6.0
+      message: Température idéale pour l'extrait de rhododendron.
+  - model: Text
+    data:
+      idIngredient: 11
+      condition: température
+      lowerBound: -1000
+      upperBound: 4.0
+      message: Température trop basse. Risque de cristallisation de l'extrait.
+  - model: Text
+    data:
+      idIngredient: 11
+      condition: température
+      lowerBound: 6.0
+      upperBound: 1000
+      message: Température trop élevée. Risque de perte des actifs.

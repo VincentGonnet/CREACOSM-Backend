@@ -21,6 +21,34 @@ async function authenticateDatabase(retries = 5, delay = 3000) {
   }
 }
 
+async function loadStorage() {
+  const storages = [
+    {
+      label: "Frigo",
+      conditions: {
+        temperature: 5,
+        humidity: 50,
+      },
+    },
+    {
+      label: "Étagère",
+      conditions: {
+        temperature: 25,
+        humidity: 65,
+      },
+    },
+    {
+      label: "Placard fermé",
+      conditions: {
+        temperature: 25,
+        humidity: 10,
+      },
+    },
+  ];
+
+  await db.Storage.bulkCreate(storages);
+}
+
 async function synchronizeDatabase() {
   try {
     // Wait for database connection
@@ -40,7 +68,15 @@ async function synchronizeDatabase() {
       Condition: db.Condition,
     };
 
-    await sequelizeFixtures.loadFile("src/fixtures/*.yml", models);
+    await sequelizeFixtures.loadFile("src/fixtures/conditions.yml", models);
+    await loadStorage(); // contains JSON data, cannot be loaded with sequelizeFixtures
+    await sequelizeFixtures.loadFile("src/fixtures/ingredients.yml", models);
+    await sequelizeFixtures.loadFile(
+      "src/fixtures/ingredients-storage.yml",
+      models
+    );
+    await sequelizeFixtures.loadFile("src/fixtures/texts.yml", models);
+
     console.log("Fixtures loaded");
   } catch (error) {
     console.error("Unable to synch the database :", error);

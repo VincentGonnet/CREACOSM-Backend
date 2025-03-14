@@ -1,0 +1,121 @@
+fixtures:
+  - model: IngredientStorage
+    data:
+      idIngredient: 1
+      condition: température
+      lowerBound: 15.0
+      upperBound: 25.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 1
+      condition: luminosité
+      lowerBound: 0.0
+      upperBound: 100.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 1
+      condition: humidité
+      lowerBound: 0.0
+      upperBound: 55.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 2
+      condition: température
+      lowerBound: 10.0
+      upperBound: 20.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 2
+      condition: luminosité
+      lowerBound: 0.0
+      upperBound: 200.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 2
+      condition: humidité
+      lowerBound: 0.0
+      upperBound: 55.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 3
+      condition: température
+      lowerBound: 10.0
+      upperBound: 30.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 3
+      condition: humidité
+      lowerBound: 30.0
+      upperBound: 60.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 4
+      condition: température
+      lowerBound: 15.0
+      upperBound: 25.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 4
+      condition: humidité
+      lowerBound: 0.0
+      upperBound: 50.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 5
+      condition: température
+      lowerBound: 15.0
+      upperBound: 25.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 5
+      condition: humidité
+      lowerBound: 0.0
+      upperBound: 50.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 6
+      condition: température
+      lowerBound: 15.0
+      upperBound: 35.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 7
+      condition: luminosité
+      lowerBound: 0.0
+      upperBound: 100.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 8
+      condition: température
+      lowerBound: 15.0
+      upperBound: 25.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 8
+      condition: luminosité
+      lowerBound: 0.0
+      upperBound: 100.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 9
+      condition: température
+      lowerBound: 4.0
+      upperBound: 6.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 10
+      condition: température
+      lowerBound: 15.0
+      upperBound: 25.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 10
+      condition: luminosité
+      lowerBound: 0.0
+      upperBound: 100.0
+  - model: IngredientStorage
+    data:
+      idIngredient: 11
+      condition: température
+      lowerBound: 4.0
+      upperBound: 6.0
