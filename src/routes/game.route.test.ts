@@ -1,7 +1,6 @@
 import request from "supertest";
 import express from "express";
 import gameRouter from "./game.route";
-import db from "../models";
 
 const app = express();
 app.use(express.json());

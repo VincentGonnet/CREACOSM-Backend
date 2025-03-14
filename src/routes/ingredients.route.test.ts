@@ -1,8 +1,6 @@
 import request from "supertest";
 import express from "express";
 import ingredientsRouter from "./ingredients.route";
-import db from "../models";
-import { synchronizeDatabase } from "../init";
 
 const app = express();
 app.use(express.json());
