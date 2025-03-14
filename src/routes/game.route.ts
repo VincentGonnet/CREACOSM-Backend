@@ -6,6 +6,4 @@ const router = Router();
 
 router.post("/start-game", startGame);
 
-router.post("/get-discovered-table", getDiscoveredTable);
-
 export default router;

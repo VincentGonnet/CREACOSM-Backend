@@ -12,7 +12,7 @@ async function getIngredientsForGame(req: Request, res: Response) {
     }
 
     // check that the request body contains { "group": "number"}
-    if (!req.body.group) {
+    if (!req.body.group || isNaN(req.body.group)) {
       res.status(400).send("Bad Request, expected group number");
       return;
     }
