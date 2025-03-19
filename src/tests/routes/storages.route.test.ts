@@ -25,4 +25,30 @@ describe("Storage Routes", () => {
       ])
     );
   });
+
+  it("should check if an ingredient fits in a storage", async () => {
+    const response = await request(app)
+      .post("/try-storage")
+      .send({ ingredientId: 1, storageId: 3 })
+      .set("Content-Type", "application/json");
+    expect(response.status).toBe(200);
+    expect(response.text).toBe("true");
+  });
+
+  it("should return false if an ingredient does not fit in a storage", async () => {
+    const response = await request(app)
+      .post("/try-storage")
+      .send({ ingredientId: 1, storageId: 1 })
+      .set("Content-Type", "application/json");
+    expect(response.status).toBe(200);
+    expect(response.text).toBe("false");
+  });
+
+  it("should return 400 for invalid data", async () => {
+    const response = await request(app)
+      .post("/try-storage")
+      .send({ ingredientId: "invalid", storageId: "invalid" })
+      .set("Content-Type", "application/json");
+    expect(response.status).toBe(400);
+  });
 });

@@ -26,22 +26,25 @@ async function loadStorage() {
     {
       label: "Frigo",
       conditions: {
-        temperature: 5,
-        humidity: 50,
+        température: 5,
+        humidité: 50,
+        luminosité: 0,
       },
     },
     {
       label: "Étagère",
       conditions: {
-        temperature: 25,
-        humidity: 65,
+        température: 25,
+        humidité: 65,
+        luminosité: 500,
       },
     },
     {
       label: "Placard fermé",
       conditions: {
-        temperature: 25,
+        température: 25,
         humidity: 10,
+        luminosité: 0,
       },
     },
   ];
