@@ -80,6 +80,12 @@ Backend d'un module pour application Web, dans le cadre du projet de Systèmes d
       }
     ]
     ```
+- POST: `/try-storage` - essaie de mettre un ingrédient dans un stockage pour validation finale
+  - Le header doit contenir `'Content-Type': 'application/json'`
+  - Le body doit contenir :
+    - `'ingredientId': '(id)'` avec (id) l'id de l'ingrédient
+    - `'storageId': '(id)'` avec (id) l'id du stockage
+  - Retourne `true` ou `false` selon si l'ingrédient est à sa place ou non
 
 ## Crédits
 
