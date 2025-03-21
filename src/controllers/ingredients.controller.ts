@@ -35,7 +35,7 @@ async function getIngredientsForGame(req: Request, res: Response) {
       }
     }
 
-    res.status(200).json({ ingredients: ingredients });
+    res.status(200).json(ingredients);
   } catch (error) {
     console.error("Error while fetching ingredients for game :", error);
     res.status(500).json({ error: "Internal server error" });

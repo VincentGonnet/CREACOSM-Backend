@@ -13,7 +13,7 @@ describe("Ingredients Routes", () => {
       .send({ group: 1 })
       .set("Content-Type", "application/json");
     expect(response.status).toBe(200);
-    expect(response.body.ingredients).toBeInstanceOf(Array);
+    expect(response.body).toBeInstanceOf(Array);
   });
 
   it("should return 400 for invalid group", async () => {
