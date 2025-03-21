@@ -11,7 +11,10 @@ Backend d'un module pour application Web, dans le cadre du projet de Systèmes d
     - `'Content-Type': 'application/json'`
   - Le body doit contenir :
     - `'code': '(code)'` avec (code) le numéro de partie rentré par les joueurs
-  - Retourne le code 200 si tout va bien
+  - Retourne le code 200 si tout va bien :
+
+### Récupérer les ingrédients
+
 - POST : `/get-ingredients` - récupère les ingrédients utilisés pour cette partie
   - Le header doit contenir :
     - `'Content-Type': 'application/json'`
@@ -32,6 +35,9 @@ Backend d'un module pour application Web, dans le cadre du projet de Systèmes d
       }
     ]
     ```
+
+### Analyser un ingrédient
+
 - POST : `/analyze-ingredient` - analyse un ingrédient et renvoie l'état après le test
   - Le header doit contenir :
     - `'Content-Type': 'application/json'`
@@ -40,7 +46,15 @@ Backend d'un module pour application Web, dans le cadre du projet de Systèmes d
     - `'ingredientId': '(id)'` avec (id) l'id de l'ingrédient à analyser
     - `'condition': '(condition)'` avec (condition) soit "température", soit "humidité", soit "luminosite"
     - `'value': '(value)'` avec (value) la valeur à tester
-  - Retourne un texte avec l'état de l'ingrédient après le test. Le résultat de l'analyse sera sauvegardé dans le tableau des découvertes.
+  - Retourne un objet json avec l'état de l'ingrédient après le test. Le résultat de l'analyse sera sauvegardé dans le tableau des découvertes :
+    ```json
+    {
+      "text": "L'ingrédient se porte très bien"
+    }
+    ```
+
+### Récupérer les indices découverts
+
 - POST : `/get-discovered-table` - récupère la table des découvertes pour un ingrédient donné
   - Le header doit contenir :
     - `'Content-Type': 'application/json'`
@@ -66,6 +80,9 @@ Backend d'un module pour application Web, dans le cadre du projet de Systèmes d
       }
     ]
     ```
+
+### Récupérer les stockages
+
 - POST : `/get-storages` - récupère les options de stockage
   - Retourne une string JSON, contenant une liste d'objets avec id et libellé
     ```json
@@ -80,12 +97,20 @@ Backend d'un module pour application Web, dans le cadre du projet de Systèmes d
       }
     ]
     ```
+
+### Essayer une combinaison ingrédient - stockage
+
 - POST: `/try-storage` - essaie de mettre un ingrédient dans un stockage pour validation finale
   - Le header doit contenir `'Content-Type': 'application/json'`
   - Le body doit contenir :
     - `'ingredientId': '(id)'` avec (id) l'id de l'ingrédient
     - `'storageId': '(id)'` avec (id) l'id du stockage
-  - Retourne `true` ou `false` selon si l'ingrédient est à sa place ou non
+  - Retourne un object json avec correct: `true` ou `false` selon si l'ingrédient est à sa place ou non :
+    ```json
+    {
+      "correct": true
+    }
+    ```
 
 ## Crédits
 

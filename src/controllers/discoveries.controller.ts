@@ -14,15 +14,15 @@ interface DiscoveredTableRow {
 async function getDiscoveredTable(req: Request, res: Response) {
   // Check if the request body is in JSON format
   if (!req.is("application/json")) {
-    res.status(400).send("Content type must be application/json");
+    res.status(400).json({ error: "Content type must be application/json" });
     return;
   }
 
   // check that the request body contains { "group": "number", "ingredientId": "number" }
   if (!req.body.group || !req.body.ingredientId) {
-    res
-      .status(400)
-      .send("Bad Request, expected group and ingredientId in the body");
+    res.status(400).json({
+      error: "Bad Request, expected group and ingredientId in the body",
+    });
     return;
   }
 
@@ -30,7 +30,7 @@ async function getDiscoveredTable(req: Request, res: Response) {
   if (isNaN(req.body.group) || isNaN(req.body.ingredientId)) {
     res
       .status(400)
-      .send("Bad Request, group and ingredientId should be numbers");
+      .json({ error: "Bad Request, group and ingredientId should be numbers" });
     return;
   }
 
@@ -74,7 +74,7 @@ async function getDiscoveredTable(req: Request, res: Response) {
 
           if (!condition) {
             console.error("Condition not found for label :", text.condition);
-            res.status(500).send("Internal Server Error");
+            res.status(500).json({ error: "Internal Server Error" });
             return;
           }
 
@@ -96,7 +96,7 @@ async function getDiscoveredTable(req: Request, res: Response) {
         "Error occurred while fetching the discovered table :",
         error
       );
-      res.status(500).send("Internal Server Error");
+      res.status(500).json({ error: "Internal Server Error" });
     });
 }
 

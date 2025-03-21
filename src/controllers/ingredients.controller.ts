@@ -7,13 +7,13 @@ async function getIngredientsForGame(req: Request, res: Response) {
   try {
     // Check if the request body is in JSON format
     if (!req.is("application/json")) {
-      res.status(400).send("Content type must be application/json");
+      res.status(400).json({ error: "Content type must be application/json" });
       return;
     }
 
     // check that the request body contains { "group": "number"}
     if (!req.body.group || isNaN(req.body.group)) {
-      res.status(400).send("Bad Request, expected group number");
+      res.status(400).json({ error: "Bad Request, expected group number" });
       return;
     }
 
@@ -35,10 +35,10 @@ async function getIngredientsForGame(req: Request, res: Response) {
       }
     }
 
-    res.status(200).send(ingredients);
+    res.status(200).json({ ingredients: ingredients });
   } catch (error) {
     console.error("Error while fetching ingredients for game :", error);
-    res.status(500).send("Internal server error");
+    res.status(500).json({ error: "Internal server error" });
   }
 }
 
@@ -46,7 +46,7 @@ async function analyzeIngredient(req: Request, res: Response) {
   try {
     // Check if the request body is in JSON format
     if (!req.is("application/json")) {
-      res.status(400).send("Content type must be application/json");
+      res.status(400).json({ error: "Content type must be application/json" });
       return;
     }
 
@@ -57,11 +57,10 @@ async function analyzeIngredient(req: Request, res: Response) {
       !req.body.condition ||
       !req.body.value
     ) {
-      res
-        .status(400)
-        .send(
-          "Bad Request, expected group number, ingredient id, condition and value"
-        );
+      res.status(400).json({
+        error:
+          "Bad Request, expected group number, ingredient id, condition and value",
+      });
       return;
     }
 
@@ -70,9 +69,9 @@ async function analyzeIngredient(req: Request, res: Response) {
       isNaN(req.body.ingredientId) ||
       isNaN(req.body.value)
     ) {
-      res
-        .status(400)
-        .send("Bad Request, group, ingredientId and value must be numbers");
+      res.status(400).json({
+        error: "Bad Request, group, ingredientId and value must be numbers",
+      });
       return;
     }
 
@@ -120,11 +119,11 @@ async function analyzeIngredient(req: Request, res: Response) {
     });
     console.log("Text added to discovered table");
 
-    res.status(200).send(text.message);
+    res.status(200).json({ text: text.message });
     console.log("Analysis done, response sent");
   } catch (error) {
     console.error("Error while analyzing ingredient :", error);
-    res.status(500).send("Internal server error");
+    res.status(500).json({ error: "Internal server error" });
   }
 }
 

@@ -55,7 +55,7 @@ async function getStorages(req: Request, res: Response) {
     res.status(200).json(storageJson);
   } catch (error) {
     console.error("Error while fetching storages:", error);
-    res.status(500).send("Internal server error");
+    res.status(500).json({ error: "Internal server error" });
   }
 }
 
@@ -63,7 +63,7 @@ async function tryStorage(req: Request, res: Response) {
   try {
     // Check if the request body is in JSON format
     if (!req.is("application/json")) {
-      res.status(400).send("Content type must be application/json");
+      res.status(400).json({ error: "Content type must be application/json" });
       return;
     }
 
@@ -71,15 +71,15 @@ async function tryStorage(req: Request, res: Response) {
     if (!req.body.ingredientId || !req.body.storageId) {
       res
         .status(400)
-        .send("Bad Request, expected ingredient id and storage id");
+        .json({ error: "Bad Request, expected ingredient id and storage id" });
       return;
     }
 
     // check if both ingredientId and storageId are numbers
     if (isNaN(req.body.ingredientId) || isNaN(req.body.storageId)) {
-      res
-        .status(400)
-        .send("Bad Request, ingredientId and storageId must be numbers");
+      res.status(400).json({
+        error: "Bad Request, ingredientId and storageId must be numbers",
+      });
       return;
     }
 
@@ -88,10 +88,10 @@ async function tryStorage(req: Request, res: Response) {
 
     const isFit = await isIngredientFitForStorage(ingredientId, storageId);
 
-    res.status(200).send(isFit);
+    res.status(200).json({ correct: isFit });
   } catch (error) {
     console.error("Error while trying storage:", error);
-    res.status(500).send("Internal server error");
+    res.status(500).json({ error: "Internal server error" });
   }
 }
 

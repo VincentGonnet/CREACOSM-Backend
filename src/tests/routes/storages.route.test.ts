@@ -32,7 +32,7 @@ describe("Storage Routes", () => {
       .send({ ingredientId: 1, storageId: 3 })
       .set("Content-Type", "application/json");
     expect(response.status).toBe(200);
-    expect(response.text).toBe("true");
+    expect(response.body).toEqual({ correct: true });
   });
 
   it("should return false if an ingredient does not fit in a storage", async () => {
@@ -41,7 +41,7 @@ describe("Storage Routes", () => {
       .send({ ingredientId: 1, storageId: 1 })
       .set("Content-Type", "application/json");
     expect(response.status).toBe(200);
-    expect(response.text).toBe("false");
+    expect(response.body).toEqual({ correct: false });
   });
 
   it("should return 400 for invalid data", async () => {

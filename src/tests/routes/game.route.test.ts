@@ -13,6 +13,6 @@ describe("Game Routes", () => {
       .send({ code: "1" })
       .set("Content-Type", "application/json");
     expect(response.status).toBe(200);
-    expect(response.text).toBe("Game started");
+    expect(response.body).toEqual({ message: "Game started" });
   });
 });

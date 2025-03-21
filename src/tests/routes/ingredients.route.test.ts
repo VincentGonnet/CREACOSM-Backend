@@ -13,7 +13,7 @@ describe("Ingredients Routes", () => {
       .send({ group: 1 })
       .set("Content-Type", "application/json");
     expect(response.status).toBe(200);
-    expect(response.body).toBeInstanceOf(Array);
+    expect(response.body.ingredients).toBeInstanceOf(Array);
   });
 
   it("should return 400 for invalid group", async () => {
@@ -22,7 +22,9 @@ describe("Ingredients Routes", () => {
       .send({ group: "invalid" })
       .set("Content-Type", "application/json");
     expect(response.status).toBe(400);
-    expect(response.text).toBe("Bad Request, expected group number");
+    expect(response.body).toEqual({
+      error: "Bad Request, expected group number",
+    });
   });
 
   it("should analyze ingredient with valid data", async () => {
@@ -31,7 +33,7 @@ describe("Ingredients Routes", () => {
       .send({ group: 1, ingredientId: 1, condition: "température", value: 25 })
       .set("Content-Type", "application/json");
     expect(response.status).toBe(200);
-    expect(response.text).toBeTruthy();
+    expect(response.body).toEqual({ text: expect.any(String) });
   });
 
   it("should return 400 for invalid data", async () => {

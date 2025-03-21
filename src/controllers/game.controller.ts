@@ -6,13 +6,13 @@ async function startGame(req: Request, res: Response, next) {
 
   // Check if the request body is in JSON format
   if (!req.is("application/json")) {
-    res.status(400).send("Content type must be application/json");
+    res.status(400).json({ error: "Content type must be application/json" });
     return;
   }
 
   // check that the request body contains { "code": "some-code" }
   if (!req.body.code) {
-    res.status(400).send("Bad Request");
+    res.status(400).json({ error: "Bad Request" });
     return;
   }
 
@@ -23,16 +23,16 @@ async function startGame(req: Request, res: Response, next) {
   // Respond with the appropriate status code based on the game code
   switch (gameCode) {
     case "1":
-      res.status(200).send("Game started");
+      res.status(200).json({ message: "Game started" });
       break;
     case "2":
-      res.status(401).send("Unauthorized");
+      res.status(401).json({ error: "Unauthorized" });
       break;
     case "3":
-      res.status(500).send("Internal Server Error");
+      res.status(500).json({ error: "Internal Server Error" });
       break;
     default:
-      res.status(400).send("Bad Request");
+      res.status(400).json({ error: "Bad Request" });
       break;
   }
 
