@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import db from "../models";
 
-async function startGame(req: Request, res: Response, next) {
+async function startGame(req: Request, res: Response) {
   // TODO: modify the function to send a POST request to the game service to start the game, instead of replicating the logic here
 
   // Check if the request body is in JSON format
@@ -16,25 +16,17 @@ async function startGame(req: Request, res: Response, next) {
     return;
   }
 
+  // check that the code is a number
+  if (isNaN(parseInt(req.body.code))) {
+    res.status(400).json({ error: "Bad Request" });
+    return;
+  }
+
   const gameCode = req.body.code;
 
   console.log("Game start request with game code :", gameCode);
 
-  // Respond with the appropriate status code based on the game code
-  switch (gameCode) {
-    case "1":
-      res.status(200).json({ message: "Game started" });
-      break;
-    case "2":
-      res.status(401).json({ error: "Unauthorized" });
-      break;
-    case "3":
-      res.status(500).json({ error: "Internal Server Error" });
-      break;
-    default:
-      res.status(400).json({ error: "Bad Request" });
-      break;
-  }
+  res.status(200).json({ message: "Game started" });
 
   // Create a new game in the database
   db.Game.findOrCreate({
@@ -57,14 +49,32 @@ async function startGame(req: Request, res: Response, next) {
     });
 }
 
-function endGame(completed: boolean) {
+async function endGame(req: Request, res: Response) {
+  // Check if the request body is in JSON format
+  if (!req.is("application/json")) {
+    res.status(400).json({ error: "Content type must be application/json" });
+    return;
+  }
+
+  // check that the request body contains { "code": "some-code" }
+  if (!req.body.code) {
+    res.status(400).json({ error: "Bad Request" });
+    return;
+  }
+
+  // check that the code is a number
+  if (isNaN(parseInt(req.body.code))) {
+    res.status(400).json({ error: "Bad Request" });
+    return;
+  }
+
+  const gameCode = req.body.code;
+
+  console.log("Game start request with game code :", gameCode);
+
   // TODO: send a POST request to the game service to end the game
 
-  if (completed) {
-    console.log("Game completed");
-  } else {
-    console.log("Game not completed");
-  }
+  res.status(200).json({ message: "Game ended" });
 }
 
 export default startGame;

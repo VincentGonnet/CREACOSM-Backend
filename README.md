@@ -11,7 +11,7 @@ Backend d'un module pour application Web, dans le cadre du projet de Systèmes d
     - `'Content-Type': 'application/json'`
   - Le body doit contenir :
     - `'code': '(code)'` avec (code) le numéro de partie rentré par les joueurs
-  - Retourne le code 200 si tout va bien :
+  - Retourne le code 200 si tout va bien
 
 ### Récupérer les ingrédients
 
@@ -111,6 +111,15 @@ Backend d'un module pour application Web, dans le cadre du projet de Systèmes d
       "correct": true
     }
     ```
+
+### Finir la partie
+
+- POST : `/end-game` - termine la partie du groupe donné
+  - Le header doit contenir :
+    - `'Content-Type': 'application/json'`
+  - Le body doit contenir :
+    - `'code': '(code)'` avec (code) le numéro de partie rentré par les joueurs
+  - Retourne le code 200 si tout va bien
 
 ## Crédits
 
