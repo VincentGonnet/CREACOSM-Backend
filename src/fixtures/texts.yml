@@ -60,7 +60,7 @@ fixtures:
       idIngredient: 2
       condition: température
       lowerBound: 10.0
-      upperBound: 20.0
+      upperBound: 26.0
       message: La température est adaptée pour l'huile de prune.
   - model: Text
     data:
@@ -73,7 +73,7 @@ fixtures:
     data:
       idIngredient: 2
       condition: température
-      lowerBound: 20.0
+      lowerBound: 26.0
       upperBound: 1000
       message: La température est trop élevée pour l'huile de prune. Risque d'altération.
   - model: Text

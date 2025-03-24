@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { Op } from "sequelize";
 import db from "../models";
 import Ingredient from "../models/ingredient";
+import Text from "../models/text";
 
 async function getIngredientsForGame(req: Request, res: Response) {
   try {
@@ -85,7 +86,7 @@ async function analyzeIngredient(req: Request, res: Response) {
     );
 
     // try to find, in texts, the ingredient with the given id and condition, and the given value between lowerBound and upperBound
-    let text = await db.Text.findOne({
+    let texts = await db.Text.findAll({
       where: {
         idIngredient: ingredientId,
         condition: condition,
@@ -97,6 +98,15 @@ async function analyzeIngredient(req: Request, res: Response) {
         },
       },
     });
+
+    let text: Text;
+
+    // if multiple texts are found, choose the one that don't have 1000 as lowerBound or upperBound
+    if (texts && texts.length > 1) {
+      text = texts.find((t) => t.lowerBound !== -1000 && t.upperBound !== 1000);
+    } else if (texts && texts.length === 1) {
+      text = texts[0];
+    }
 
     // if no text is found, create a text entry in the database
     if (!text) {

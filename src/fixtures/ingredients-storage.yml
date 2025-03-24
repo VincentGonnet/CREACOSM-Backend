@@ -22,7 +22,7 @@ fixtures:
       idIngredient: 2
       condition: température
       lowerBound: 10.0
-      upperBound: 20.0
+      upperBound: 26.0
   - model: IngredientStorage
     data:
       idIngredient: 2
