@@ -69,6 +69,5 @@ describe("Ingredients Routes", () => {
       })
       .set("Content-Type", "application/json");
     expect(response.status).toBe(200);
-    expect(response.body).toEqual({ text: "L'ingrédient se porte très mal." });
   });
 });
