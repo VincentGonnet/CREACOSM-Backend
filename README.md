@@ -44,7 +44,7 @@ Backend d'un module pour application Web, dans le cadre du projet de Systèmes d
   - Le body doit contenir :
     - `'group': '(numGroupe)'` avec (numGroupe) le numéro de partie rentré par les joueurs
     - `'ingredientId': '(id)'` avec (id) l'id de l'ingrédient à analyser
-    - `'condition': '(condition)'` avec (condition) soit "température", soit "humidité", soit "luminosite"
+    - `'condition': '(condition)'` avec (condition) soit "température", soit "humidité", soit "luminosité"
     - `'value': '(value)'` avec (value) la valeur à tester
   - Retourne un objet json avec l'état de l'ingrédient après le test. Le résultat de l'analyse sera sauvegardé dans le tableau des découvertes :
     ```json

@@ -115,7 +115,7 @@ async function analyzeIngredient(req: Request, res: Response) {
         condition: condition,
         lowerBound: value,
         upperBound: value,
-        message: "L'ingrédient se porte très mal.",
+        message: "L'ingrédient se porte bien.",
       });
       console.log(
         "Value out of bounds for this condition, new placeholder text created"
