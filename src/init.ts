@@ -89,8 +89,10 @@ async function synchronizeDatabase() {
 async function startServer(app: Application) {
   await synchronizeDatabase();
 
-  app.listen(3000, () => {
-    console.log("Server is up and listening on port 3000");
+  const port = process.env.PORT_DE_NOTRE_BACKEND || 3001;
+
+  app.listen(port, () => {
+    console.log("Server is up and listening on port " + port);
   });
 }
 
